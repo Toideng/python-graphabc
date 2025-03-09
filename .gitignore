@@ -1,0 +1,14 @@
+/.idea/
+/.venv/
+/.pypirc
+
+/build/
+/dist/
+/.eggs/
+/*.egg
+/*.egg-info/
+
+__pycache__/
+*.pyc
+
+/*.lst
