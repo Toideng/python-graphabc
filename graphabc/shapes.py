@@ -57,8 +57,8 @@ def LineTo(x: int, y: int, c: Optional[Color] = None):
 	]
 
 	pyray.draw_line_ex(
-		pyray.Vector(outline[0]),
-		pyray.Vector(outline[1]),
+		outline[0],
+		outline[1],
 		ctx.pen.Width,
 		c,
 	)
@@ -84,8 +84,8 @@ def Line(x1: int, y1: int, x2: int, y2: int, c: Optional[Color] = None):
 	]
 
 	pyray.draw_line_ex(
-		pyray.Vector(outline[0]),
-		pyray.Vector(outline[1]),
+		outline[0],
+		outline[1],
 		ctx.pen.Width,
 		c,
 	)
