@@ -9,6 +9,14 @@ from .context import *
 
 
 
+# Combined SetPenColor + SetBrushColor
+
+def SetColor(c: Color):
+	SetPenColor(c)
+	SetBrushColor(c)
+
+
+
 # --- Pixels --- #
 
 @UserFunc
@@ -161,15 +169,29 @@ def Ellipse(x1: int, y1: int, x2: int, y2: int):
 
 # --- Rectangles --- #
 
-@UnimplementedFunc
 @UserFunc
 def FillRectangle(x1: int, y1: int, x2: int, y2: int):
-	pass
+#{
+	ctx = get_render_context()
+	if ctx.brush.Style == bsClear:
+		return
 
-@UnimplementedFunc
+	assert ctx.brush.Style == bsSolid
+
+	pyray.draw_rectangle(x1, y1, x2 - x1, y2 - y1, ctx.brush.Color)
+#}
+
 @UserFunc
 def DrawRectangle(x1: int, y1: int, x2: int, y2: int):
-	pass
+#{
+	ctx = get_render_context()
+	if ctx.pen.Style == psClear:
+		return
+
+	assert ctx.pen.Style == psSolid and ctx.pen.Width == 1
+
+	pyray.draw_rectangle_lines(x1, y1, x2 - x1, y2 - y1, ctx.pen.Color)
+#}
 
 def Rectangle(x1: int, y1: int, x2: int, y2: int):
 	FillRectangle(x1, y1, x2, y2)
@@ -194,6 +216,36 @@ def RoundRect(x1: int, y1: int, x2: int, y2: int, w: int, h: int):
 
 
 # --- Generic shapes --- #
+
+@UserFunc
+def FillTriangle(p1: Point, p2: Point, p3: Point):
+#{
+	ctx = get_render_context()
+	if ctx.brush.Style == bsClear:
+		return
+
+	assert ctx.brush.Style == bsSolid
+
+	pyray.draw_triangle(p1, p2, p3, ctx.brush.Color)
+#}
+
+@UserFunc
+def DrawTriangle(p1: Point, p2: Point, p3: Point):
+#{
+	ctx = get_render_context()
+	if ctx.pen.Style == psClear:
+		return
+
+	assert ctx.pen.Style == psSolid and ctx.pen.Width == 1
+
+	pyray.draw_triangle_lines(p1, p2, p3, ctx.pen.Color)
+#}
+
+def Triangle(p1: Point, p2: Point, p3: Point):
+	FillTriangle(p1, p2, p3)
+	DrawTriangle(p1, p2, p3)
+
+
 
 @UnimplementedFunc
 @UserFunc

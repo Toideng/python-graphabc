@@ -1,1 +1,3 @@
-type Point = tuple[int, int]
+import pyray
+
+Point = pyray.Vector2
