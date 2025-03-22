@@ -1,6 +1,23 @@
 from .window_h import _Window
 from .context import *
 
+@UserFunc
+def GetWindowTitle() -> int:
+	ctx = get_render_context()
+	return ctx.window.Title
+
+@UserFunc
+def GetWindowWidth() -> int:
+	ctx = get_render_context()
+	return ctx.window.Width
+
+@UserFunc
+def GetWindowHeight() -> int:
+	ctx = get_render_context()
+	return ctx.window.Height
+
+
+
 @UnimplementedFunc
 @UserFunc
 def Redraw():
@@ -69,20 +86,3 @@ def SmoothingIsOn() -> bool:
 	ctx = get_render_context()
 	return ctx.win.smoothing
 #}
-
-
-
-@UserFunc
-def GetWindowTitle() -> int:
-	ctx = get_render_context()
-	return ctx.window.Title
-
-@UserFunc
-def GetWindowWidth() -> int:
-	ctx = get_render_context()
-	return ctx.window.Width
-
-@UserFunc
-def GetWindowHeight() -> int:
-	ctx = get_render_context()
-	return ctx.window.Height

@@ -69,22 +69,6 @@ class Picture(UserObject):
 	#}
 
 	@UserFunc
-	def FlipHorizontal(self):
-	#{
-		ctx = get_render_context()
-		pic = ctx.pictures[self]
-		pyray.image_flip_horizontal(pic.image)
-	#}
-
-	@UserFunc
-	def FlipVertical(self):
-	#{
-		ctx = get_render_context()
-		pic = ctx.pictures[self]
-		pyray.image_flip_vertical(pic.image)
-	#}
-
-	@UserFunc
 	def Draw(self, x: int, y: int, w: Optional[int] = None, h: Optional[int] = None):
 	#{
 		ctx = get_render_context()
@@ -113,6 +97,22 @@ class Picture(UserObject):
 		pyray.unload_texture(txt)
 		if resize:
 			pyray.unload_image(tgt)
+	#}
+
+	@UserFunc
+	def FlipHorizontal(self):
+	#{
+		ctx = get_render_context()
+		pic = ctx.pictures[self]
+		pyray.image_flip_horizontal(pic.image)
+	#}
+
+	@UserFunc
+	def FlipVertical(self):
+	#{
+		ctx = get_render_context()
+		pic = ctx.pictures[self]
+		pyray.image_flip_vertical(pic.image)
 	#}
 
 	@UserFunc
