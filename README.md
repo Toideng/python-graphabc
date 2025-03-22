@@ -49,8 +49,7 @@ R = 10.
 def draw(x, y):
 	global R
 	R *= 1.05
-	SetPenColor(clRandom())
-	SetBrushColor(clRandom())
+	SetColor(clRandom())
 	Circle(x, y, int(R))
 
 def click_cb(x, y, mb):
@@ -157,7 +156,7 @@ API alterations wrt the original library:
 
 ## Unimplemented (planned) functionality
 
-If some functionality is denoted as "dropped" above in the list of alterations, there are not plans
+If some functionality is denoted as "dropped" above in the list of alterations, there are no plans
 of implementing it.  Still, some other functionality isn't yet supported and might be added later:
 
 - Freehand shapes (`*ClosedCurve`, `Curve`, `*Polygon`, `Polyline`)
