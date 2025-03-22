@@ -1,6 +1,11 @@
 import pyray
+import sys
 
-type KeyboardKey = pyray.KeyboardKey
+if sys.version_info >= (3, 12):
+	exec('type KeyboardKey = pyray.KeyboardKey')
+else:
+	class KeyboardKey:
+		pass
 
 VK_Null        : KeyboardKey = pyray.KEY_NULL # extra
 VK_Left        : KeyboardKey = pyray.KEY_LEFT

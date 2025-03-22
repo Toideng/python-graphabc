@@ -1,4 +1,10 @@
-type Color = tuple[int, int, int, int]
+import sys
+
+if sys.version_info >= (3, 12):
+	exec('type Color = tuple[int, int, int, int]')
+else:
+	class Color:
+		pass
 
 # Imported from raylib-python-cffi/raylib/colors.py
 cl_BEIGE      : Color = ( 211, 176, 131, 255 )

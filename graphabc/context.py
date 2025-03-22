@@ -16,6 +16,7 @@ from .window_h import _Window
 from collections.abc import Callable
 from typing import Any
 from typing import Optional
+from typing import Union
 
 class Main_Context:
 #{
@@ -52,8 +53,8 @@ class _Render_Context:
 	pictures: dict[object, _Picture]
 
 	fonts_cache: dict[str, Any]
-	image_cache: dict[str | object, pyray.Image] # Picture might be taken from screen,
-	                                             # in which case it doesn't have a source
+	image_cache: dict[Union[str, object], pyray.Image] # Picture might be taken from screen,
+	                                                   # in which case it doesn't have a source
 
 	brush: _Brush
 	pen: _Pen

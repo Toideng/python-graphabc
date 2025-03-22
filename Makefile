@@ -7,6 +7,11 @@ build: .venv graphabc/* setup.py version.py README.md
 upload: build
 	twine upload --config-file .pypirc dist/*
 
+docker:
+	xhost +local:
+	docker build --no-cache -t graphabc-test-env .
+	docker run -v ./graphabc:/build/graphabc -v $(HOME)/.Xauthority:/home/nonroot/.Xauthority -e DISPLAY=$(DISPLAY) --pid=host -v /tmp/.X11-unix:/tmp/.X11-unix:ro -it graphabc-test-env bash
+
 .venv:
 	python -m venv .venv
 	pip install --upgrade pip

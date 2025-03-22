@@ -34,6 +34,7 @@ def SetOnMouseMove(cb: Optional[Callable[[int, int, MouseButtonMap], None]]):
 
 
 
+@UnimplementedFunc
 @UserFunc
 def SetOnResize(cb: Optional[Callable[[None], None]]):
 	ctx = get_render_context()

@@ -41,5 +41,6 @@ setup(
 
 	setup_requires=["raylib>=5.5.0.2"],
 	install_requires=["raylib>=5.5.0.2"],
+	python_requires='>=3.8.1',   # Python 3.8 not tested, but hopefully can work
 )
 

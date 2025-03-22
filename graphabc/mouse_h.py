@@ -1,6 +1,11 @@
 import pyray
+import sys
 
-type MouseButton = pyray.MouseButton
+if sys.version_info >= (3, 12):
+	exec('type MouseButton = pyray.MouseButton')
+else:
+	class MouseButton:
+		pass
 
 MB_Left    : MouseButton = pyray.MouseButton.MOUSE_BUTTON_LEFT
 MB_Right   : MouseButton = pyray.MouseButton.MOUSE_BUTTON_RIGHT
@@ -24,7 +29,11 @@ def MB_name(x: MouseButton) -> str:
 	return names[x]
 #}
 
-type MouseButtonMap = int
+if sys.version_info >= (3, 12):
+	exec('type MouseButtonMap = int')
+else:
+	class MouseButtonMap(int):
+		pass
 
 def MB_to_MBM(x: MouseButton) -> MouseButtonMap:
 	return 1 << x

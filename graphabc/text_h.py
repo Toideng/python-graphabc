@@ -1,9 +1,14 @@
 import pyray
+import sys
 from typing import Optional
 from typing import Any
 from .colors import *
 
-type FontStyle = int
+if sys.version_info >= (3, 12):
+	exec('type FontStyle = int')
+else:
+	class FontStyle(int):
+		pass
 
 fsNormal    : FontStyle = 0
 fsBold      : FontStyle = 1 << 0
