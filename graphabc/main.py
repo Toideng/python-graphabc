@@ -273,6 +273,8 @@ def main_thread_f():
 	if ctx.window.smoothing:
 		pyray.set_config_flags(pyray.ConfigFlags.FLAG_MSAA_4X_HINT)
 
+	pyray.set_config_flags(pyray.ConfigFlags.FLAG_WINDOW_HIGHDPI)
+
 	pyray.init_window(
 		ctx.window.Width,
 		ctx.window.Height,
