@@ -1,17 +1,21 @@
 from .window_h import _Window
 from .context import *
+from .exports import *
 
 @UserFunc
+@Export
 def GetWindowTitle() -> int:
 	ctx = get_render_context()
 	return ctx.window.Title
 
 @UserFunc
+@Export
 def GetWindowWidth() -> int:
 	ctx = get_render_context()
 	return ctx.window.Width
 
 @UserFunc
+@Export
 def GetWindowHeight() -> int:
 	ctx = get_render_context()
 	return ctx.window.Height
@@ -20,6 +24,7 @@ def GetWindowHeight() -> int:
 
 @UnimplementedFunc
 @UserFunc
+@Export
 def Redraw():
 #{
 	ctx = get_render_context()
@@ -36,6 +41,7 @@ def Redraw():
 
 @UnimplementedFunc
 @UserFunc
+@Export
 def LockDrawing():
 #{
 	ctx = get_render_context()
@@ -51,6 +57,7 @@ def LockDrawing():
 
 @UnimplementedFunc
 @UserFunc
+@Export
 def UnlockDrawing():
 #{
 	ctx = get_render_context()
@@ -68,21 +75,27 @@ def UnlockDrawing():
 
 @UnimplementedFunc
 @UserFunc
+@Export
 def SetSmoothing(on: bool):
 #{
 	ctx = get_render_context()
 	ctx.win.smoothing = on
 #}
 
+@Export
 def SetSmoothingOn():
 	SetSmoothing(True)
 
+@Export
 def SetSmoothingOff():
 	SetSmoothing(False)
 
 @UserFunc
+@Export
 def SmoothingIsOn() -> bool:
 #{
 	ctx = get_render_context()
 	return ctx.win.smoothing
 #}
+
+__all__ = get_local_exports()

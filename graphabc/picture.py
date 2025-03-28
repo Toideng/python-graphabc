@@ -3,7 +3,9 @@ import pyray
 from .picture_h import *
 from .picture_h import _Picture
 from .context import *
+from .exports import *
 
+@Export
 class Picture(UserObject):
 #{
 	_attributes_get = ['X', 'Y', 'Width', 'Height']
@@ -130,5 +132,8 @@ class Picture(UserObject):
 
 @UnimplementedFunc
 @UserFunc
+@Export
 def PictureFromScreen() -> Picture:
 	pass
+
+__all__ = get_local_exports()

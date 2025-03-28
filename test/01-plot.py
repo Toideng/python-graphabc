@@ -2,7 +2,7 @@ from graphabc import *
 import math
 import time
 
-#from collections.abc import Callable
+from collections.abc import Callable
 
 def PlotFunc(f: Callable[[float], float], xmin: float, xmax: float, ymin: float, ymax: float):
 #{

@@ -1,11 +1,27 @@
 import pyray
 import sys
+from .exports import *
 
+ExportNames('KeyboardKey')
 if sys.version_info >= (3, 12):
 	exec('type KeyboardKey = pyray.KeyboardKey')
 else:
 	class KeyboardKey:
 		pass
+
+ExportNames('VK_Null', 'VK_Left', 'VK_Up', 'VK_Right', 'VK_Down', 'VK_PageUp', 'VK_PageDown',
+	'VK_Home', 'VK_End', 'VK_Insert', 'VK_Delete', 'VK_Enter', 'VK_Back', 'VK_Tab', 'VK_F1',
+	'VK_F2', 'VK_F3', 'VK_F4', 'VK_F5', 'VK_F6', 'VK_F7', 'VK_F8', 'VK_F9', 'VK_F10', 'VK_F11',
+	'VK_F12', 'VK_Menu', 'VK_Pause', 'VK_CapsLock', 'VK_PrintScreen', 'VK_Space', 'VK_A',
+	'VK_B', 'VK_C', 'VK_D', 'VK_E', 'VK_F', 'VK_G', 'VK_H', 'VK_I', 'VK_J', 'VK_K', 'VK_L',
+	'VK_M', 'VK_N', 'VK_O', 'VK_P', 'VK_Q', 'VK_R', 'VK_S', 'VK_T', 'VK_U', 'VK_V', 'VK_W',
+	'VK_X', 'VK_Y', 'VK_Z', 'VK_LWin', 'VK_RWin', 'VK_NumPad0', 'VK_NumPad1', 'VK_NumPad2',
+	'VK_NumPad3', 'VK_NumPad4', 'VK_NumPad5', 'VK_NumPad6', 'VK_NumPad7', 'VK_NumPad8',
+	'VK_NumPad9', 'VK_Multiply', 'VK_Add', 'VK_Subtract', 'VK_Decimal', 'VK_Divide',
+	'VK_NumLock', 'VK_Scroll', 'VK_LShiftKey', 'VK_RShiftKey', 'VK_LControlKey',
+	'VK_RControlKey', 'VK_Escape', 'VK_Backtick', 'VK_1', 'VK_2', 'VK_3', 'VK_4', 'VK_5',
+	'VK_6', 'VK_7', 'VK_8', 'VK_9', 'VK_0', 'VK_Minus', 'VK_Equal', 'VK_Backspace',
+	'VK_LAltKey', 'VK_RAltKey', 'VK_NumPadEnter', 'VK_NumPadEqual', 'VK_Period')
 
 VK_Null        : KeyboardKey = pyray.KEY_NULL # extra
 VK_Left        : KeyboardKey = pyray.KEY_LEFT
@@ -129,3 +145,5 @@ VK_RAltKey     : KeyboardKey = pyray.KEY_RIGHT_ALT
 VK_NumPadEnter : KeyboardKey = pyray.KEY_KP_ENTER
 VK_NumPadEqual : KeyboardKey = pyray.KEY_KP_EQUAL
 VK_Period      : KeyboardKey = pyray.KEY_PERIOD
+
+__all__ = get_local_exports()

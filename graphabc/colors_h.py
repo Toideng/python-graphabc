@@ -1,11 +1,17 @@
 import sys
+from .exports import *
 
+ExportNames('Color')
 if sys.version_info >= (3, 12):
 	exec('type Color = tuple[int, int, int, int]')
 else:
 	class Color:
 		pass
 
+ExportNames('cl_BEIGE', 'cl_BLACK', 'cl_BLANK', 'cl_BLUE', 'cl_BROWN', 'cl_DARKBLUE', 'cl_DARKBROWN',
+	'cl_DARKGRAY', 'cl_DARKGREEN', 'cl_DARKPURPLE', 'cl_GOLD', 'cl_GRAY', 'cl_GREEN',
+	'cl_LIGHTGRAY', 'cl_LIME', 'cl_MAGENTA', 'cl_MAROON', 'cl_ORANGE', 'cl_PINK', 'cl_PURPLE',
+	'cl_RAYWHITE', 'cl_RED', 'cl_SKYBLUE', 'cl_VIOLET', 'cl_WHITE', 'cl_YELLOW')
 # Imported from raylib-python-cffi/raylib/colors.py
 cl_BEIGE      : Color = ( 211, 176, 131, 255 )
 cl_BLACK      : Color = (   0,   0,   0, 255 )
@@ -34,6 +40,31 @@ cl_VIOLET     : Color = ( 135,  60, 190, 255 )
 cl_WHITE      : Color = ( 255, 255, 255, 255 )
 cl_YELLOW     : Color = ( 253, 249,   0, 255 )
 
+ExportNames('clAquamarine', 'clAzure', 'clBeige', 'clBisque', 'clBlack', 'clBlanchedAlmond',
+	'clBlue', 'clBlueViolet', 'clBrown', 'clBurlyWood', 'clCadetBlue', 'clChartreuse',
+	'clChocolate', 'clCoral', 'clCornflowerBlue', 'clCornsilk', 'clCrimson', 'clCyan',
+	'clDarkBlue', 'clDarkCyan', 'clDarkGoldenrod', 'clDarkGray', 'clDarkGreen', 'clDarkKhaki',
+	'clDarkMagenta', 'clDarkOliveGreen', 'clDarkOrange', 'clDarkOrchid', 'clDarkRed',
+	'clDarkSalmon', 'clDarkSeaGreen', 'clDarkSlateBlue', 'clDarkSlateGray', 'clDarkTurquoise',
+	'clDarkViolet', 'clDeepPink', 'clDeepSkyBlue', 'clDimGray', 'clDodgerBlue', 'clFirebrick',
+	'clFloralWhite', 'clForestGreen', 'clFuchsia', 'clGainsboro', 'clGhostWhite', 'clGold',
+	'clGoldenrod', 'clGray', 'clGreen', 'clGreenYellow', 'clHoneydew', 'clHotPink',
+	'clIndianRed', 'clIndigo', 'clIvory', 'clKhaki', 'clLavender', 'clLavenderBlush',
+	'clLawnGreen', 'clLemonChiffon', 'clLightBlue', 'clLightCoral', 'clLightCyan',
+	'clLightGoldenrodYellow', 'clLightGray', 'clLightGreen', 'clLightPink', 'clLightSalmon',
+	'clLightSeaGreen', 'clLightSkyBlue', 'clLightSlateGray', 'clLightSteelBlue',
+	'clLightYellow', 'clLime', 'clLimeGreen', 'clLinen', 'clMagenta', 'clMaroon',
+	'clMediumAquamarine', 'clMediumBlue', 'clMediumOrchid', 'clMediumPurple',
+	'clMediumSeaGreen', 'clMediumSlateBlue', 'clMediumSpringGreen', 'clMediumTurquoise',
+	'clMediumVioletRed', 'clMidnightBlue', 'clMintCream', 'clMistyRose', 'clMoccasin',
+	'clMoneyGreen', 'clNavajoWhite', 'clNavy', 'clOldLace', 'clOlive', 'clOliveDrab',
+	'clOrange', 'clOrangeRed', 'clOrchid', 'clPaleGoldenrod', 'clPaleGreen', 'clPaleTurquoise',
+	'clPaleVioletRed', 'clPapayaWhip', 'clPeachPuff', 'clPeru', 'clPink', 'clPlum',
+	'clPowderBlue', 'clPurple', 'clRed', 'clRosyBrown', 'clRoyalBlue', 'clSaddleBrown',
+	'clSalmon', 'clSandyBrown', 'clSeaGreen', 'clSeaShell', 'clSienna', 'clSilver', 'clSkyBlue',
+	'clSlateBlue', 'clSlateGray', 'clSnow', 'clSpringGreen', 'clSteelBlue', 'clTan', 'clTeal',
+	'clThistle', 'clTomato', 'clTurquoise', 'clViolet', 'clWheat', 'clWhite', 'clWhiteSmoke',
+	'clYellow', 'clYellowGreen', 'clTransparent', 'clNONE')
 # Imported from PascalABC.NET::GraphABC
 clAquamarine           : Color = (0x7F, 0xFF, 0xD4, 0xFF)
 clAzure                : Color = (0xF0, 0xFF, 0xFF, 0xFF)
@@ -176,3 +207,5 @@ clYellowGreen          : Color = (0x9A, 0xCD, 0x32, 0xFF)
 
 clTransparent          : Color = (0x00, 0x00, 0x00, 0x00)
 clNONE                 : Color = clTransparent
+
+__all__ = get_local_exports()

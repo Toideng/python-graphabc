@@ -1,7 +1,10 @@
 from enum import IntEnum
 from typing import Optional
+from .colors_h import *
 from .colors import *
+from .exports import *
 
+@Export
 class PenStyle(IntEnum):
 #{
 	Clear      = 0
@@ -12,6 +15,7 @@ class PenStyle(IntEnum):
 	DashDotDot = 5
 #}
 
+ExportNames('psClear', 'psSolid', 'psDash', 'psDot', 'psDashDot', 'psDashDotDot')
 psClear      = PenStyle.Clear
 psSolid      = PenStyle.Solid
 psDash       = PenStyle.Dash
@@ -44,3 +48,5 @@ class _Pen:
 		self._advance = 0
 	#}
 #}
+
+__all__ = get_local_exports()

@@ -4,7 +4,9 @@ from typing import Optional
 from .colors_h import *
 from .picture_h import *
 from .picture_h import _Picture
+from .exports import *
 
+@Export
 class BrushStyle(IntEnum):
 #{
 	Clear    = 0
@@ -15,6 +17,7 @@ class BrushStyle(IntEnum):
 	Picture  = 4
 #}
 
+ExportNames('bsClear', 'bsSolid', 'bsReplace', 'bsHatch', 'bsGradient', 'bsPicture')
 bsClear    = BrushStyle.Clear
 bsSolid    = BrushStyle.Solid
 bsReplace  = BrushStyle.Replace
@@ -22,6 +25,7 @@ bsHatch    = BrushStyle.Hatch
 bsGradient = BrushStyle.Gradient
 bsPicture  = BrushStyle.Picture
 
+@Export
 class BrushPictureStyle(IntEnum):
 #{
 	NONE    = 0
@@ -29,10 +33,12 @@ class BrushPictureStyle(IntEnum):
 	Repeat  = 2
 #}
 
+ExportNames('bpsNone', 'bpsStretch', 'bpsRepeat')
 bpsNone    = BrushPictureStyle.NONE
 bpsStretch = BrushPictureStyle.Stretch
 bpsRepeat  = BrushPictureStyle.Repeat
 
+@Export
 class HatchStyle(IntEnum):
 #{
 	NONE                   = 0
@@ -93,6 +99,20 @@ class HatchStyle(IntEnum):
 	LargeGrid              = 55
 	Max                    = 56
 #}
+
+
+ExportNames('bhNone', 'bhHorizontal', 'bhVertical', 'bhForwardDiagonal', 'bhBackwardDiagonal',
+	'bhCross', 'bhDiagonalCross', 'bhPercent05', 'bhPercent10', 'bhPercent20', 'bhPercent25',
+	'bhPercent30', 'bhPercent40', 'bhPercent50', 'bhPercent60', 'bhPercent70', 'bhPercent75',
+	'bhPercent80', 'bhPercent90', 'bhLightDownwardDiagonal', 'bhLightUpwardDiagonal',
+	'bhDarkDownwardDiagonal', 'bhDarkUpwardDiagonal', 'bhWideDownwardDiagonal',
+	'bhWideUpwardDiagonal', 'bhLightVertical', 'bhLightHorizontal', 'bhNarrowVertical',
+	'bhNarrowHorizontal', 'bhDarkVertical', 'bhDarkHorizontal', 'bhDashedDownwardDiagonal',
+	'bhDashedUpwardDiagonal', 'bhDashedHorizontal', 'bhDashedVertical', 'bhSmallConfetti',
+	'bhLargeConfetti', 'bhZigZag', 'bhWave', 'bhDiagonalBrick', 'bhHorizontalBrick', 'bhWeave',
+	'bhPlaid', 'bhDivot', 'bhDottedGrid', 'bhDottedDiamond', 'bhShingle', 'bhTrellis',
+	'bhSphere', 'bhSmallGrid', 'bhSmallCheckerBoard', 'bhLargeCheckerBoard',
+	'bhOutlinedDiamond', 'bhSolidDiamond', 'bhMin', 'bhLargeGrid', 'bhMax')
 
 bhNone                   = HatchStyle.NONE
 bhHorizontal             = HatchStyle.Horizontal
@@ -176,3 +196,5 @@ class _Brush:
 		self.PictureStyle = bpsNone
 	#}
 #}
+
+__all__ = get_local_exports()

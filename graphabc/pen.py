@@ -1,7 +1,9 @@
 from .pen_h import *
 from .pen_h import _Pen
 from .context import *
+from .exports import *
 
+@Export
 class Pen(UserObject):
 #{
 	_attributes_get = ['Color', 'Style', 'Width', 'X', 'Y']
@@ -11,6 +13,7 @@ class Pen(UserObject):
 #}
 
 @UserFunc
+@Export
 def GetPen() -> Pen:
 	ctx = get_render_context()
 	p = ctx.pen._usr
@@ -18,6 +21,7 @@ def GetPen() -> Pen:
 	return p
 
 @UserFunc
+@Export
 def SetPen(p: Pen):
 	ctx = get_render_context()
 	_p = ctx.pens[p]
@@ -26,39 +30,43 @@ def SetPen(p: Pen):
 
 
 @UserFunc
+@Export
 def GetPenColor() -> Color:
 	ctx = get_render_context()
 	return ctx.pen.Color
 
 @UserFunc
+@Export
 def SetPenColor(c: Color):
 	ctx = get_render_context()
 	ctx.pen.Color = c
 
 
 
-@UnimplementedFunc
 @UserFunc
+@Export
 def GetPenStyle() -> PenStyle:
 	ctx = get_render_context()
 	return ctx.pen.Style
 
 @UnimplementedFunc
 @UserFunc
+@Export
 def SetPenStyle(s: PenStyle):
 	ctx = get_render_context()
 	ctx.pen.Style = s
 
 
 
-@UnimplementedFunc
 @UserFunc
+@Export
 def GetPenWidth() -> int:
 	ctx = get_render_context()
 	return int(ctx.pen.Width)
 
 @UnimplementedFunc
 @UserFunc
+@Export
 def SetPenWidth(w: int):
 	ctx = get_render_context()
 	ctx.pen.Width = w
@@ -66,11 +74,13 @@ def SetPenWidth(w: int):
 
 
 @UserFunc
+@Export
 def PenX() -> int:
 	ctx = get_render_context()
 	return int(ctx.pen.X)
 
 @UserFunc
+@Export
 def PenY() -> int:
 	ctx = get_render_context()
 	return int(ctx.pen.Y)
@@ -78,7 +88,10 @@ def PenY() -> int:
 
 
 @UserFunc
+@Export
 def MoveTo(x: int, y: int):
 	ctx = get_render_context()
 	ctx.pen.X = x
 	ctx.pen.Y = y
+
+__all__ = get_local_exports()

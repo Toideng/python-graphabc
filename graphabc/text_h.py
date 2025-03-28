@@ -2,13 +2,19 @@ import pyray
 import sys
 from typing import Optional
 from typing import Any
+from .colors_h import *
 from .colors import *
+from .exports import *
 
+ExportNames('FontStyle')
 if sys.version_info >= (3, 12):
 	exec('type FontStyle = int')
 else:
 	class FontStyle(int):
 		pass
+
+ExportNames('fsNormal', 'fsBold', 'fsItalic', 'fsUnderline', 'fsBoldItalic', 'fsBoldUnderline',
+	'fsItalicUnderline', 'fsBoldItalicUnderline')
 
 fsNormal    : FontStyle = 0
 fsBold      : FontStyle = 1 << 0
@@ -38,3 +44,5 @@ class _Font:
 		self.Font = None
 	#}
 #}
+
+__all__ = get_local_exports()
