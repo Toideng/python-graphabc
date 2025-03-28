@@ -226,6 +226,12 @@ def FillTriangle(p1: Point, p2: Point, p3: Point):
 
 	assert ctx.brush.Style == bsSolid
 
+	dx1, dy1 = p2.x - p1.x, p2.y - p1.y
+	dx2, dy2 = p3.x - p1.x, p3.y - p1.y
+	if dx1 * dy2 - dy1 * dx2 > 0:
+		# Raylib requires points of a triangle to be in the counter-clockwise order
+		p2, p3 = p3, p2
+
 	pyray.draw_triangle(p1, p2, p3, ctx.brush.Color)
 #}
 
